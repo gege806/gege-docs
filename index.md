@@ -7,6 +7,8 @@ title: 格格插件文档
 
 FiveM 插件说明书。点开对应插件查看安装、配置和更新日志。
 
+辅助对接请看：[接口参考](plugins/api.html)
+
 ## 帮派 / 玩法
 
 - [领地战与排名](plugins/gg-territory-rank.html)
