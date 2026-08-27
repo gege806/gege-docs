@@ -45,6 +45,17 @@ body {
   display: block;
   border: 1px solid var(--line);
 }
+.nav-right { display: flex; align-items: center; gap: 10px; }
+.nav-link {
+  color: #fff;
+  text-decoration: none;
+  background: var(--red);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.nav-link:hover { filter: brightness(1.1); }
 .gh {
   color: var(--muted);
   text-decoration: none;

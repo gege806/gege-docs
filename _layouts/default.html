@@ -4,15 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title and page.title != site.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
-  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=3">
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}?v=4">
 </head>
 <body>
   <header class="nav">
     <a class="brand" href="{{ '/' | relative_url }}">
-      <img class="mark" src="{{ '/assets/img/gege.png' | relative_url }}?v=3" alt="格格">
+      <img class="mark" src="{{ '/assets/img/gege.png' | relative_url }}?v=4" alt="格格">
       <span>格格插件文档</span>
     </a>
-    <a class="gh" href="https://github.com/gege806/gege-docs" target="_blank" rel="noreferrer">GitHub</a>
+    <div class="nav-right">
+      <a class="nav-link" href="{{ '/plugins/api.html' | relative_url }}">接口参考</a>
+      <a class="gh" href="https://github.com/gege806/gege-docs" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
   </header>
 
   <main class="wrap{% if page.url == '/' %} home{% endif %}">
@@ -25,6 +28,6 @@
   </main>
 
   <footer class="foot">格格 · FiveM 插件说明书</footer>
-  <script src="{{ '/assets/js/site.js' | relative_url }}?v=3"></script>
+  <script src="{{ '/assets/js/site.js' | relative_url }}?v=4"></script>
 </body>
 </html>
