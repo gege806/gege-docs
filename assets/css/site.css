@@ -37,13 +37,12 @@ body {
   letter-spacing: .04em;
 }
 .mark {
-  width: 28px;
-  height: 28px;
-  display: grid;
-  place-items: center;
-  background: var(--red);
-  border-radius: 7px;
-  font-size: 14px;
+  width: 32px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #fff;
+  display: block;
 }
 .gh {
   color: var(--muted);
