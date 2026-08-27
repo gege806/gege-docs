@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if page.title and page.title != site.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/site.css' | relative_url }}">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <span class="mark">格</span>
+      <span>格格插件文档</span>
+    </a>
+    <a class="gh" href="https://github.com/gege806/gege-docs" target="_blank" rel="noreferrer">GitHub</a>
+  </header>
+
+  <main class="wrap{% if page.url == '/' %} home{% endif %}">
+    {% unless page.url == '/' %}
+    <a class="back" href="{{ '/' | relative_url }}">← 返回目录</a>
+    {% endunless %}
+    <article class="paper">
+      {{ content }}
+    </article>
+  </main>
+
+  <footer class="foot">格格 · FiveM 插件说明书</footer>
+  <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+</body>
+</html>
