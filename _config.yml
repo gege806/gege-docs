@@ -1,3 +1,11 @@
 title: 格格插件文档
 description: 格格 FiveM 插件说明书
+url: https://gege806.github.io
+baseurl: /gege-docs
 lang: zh-CN
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default

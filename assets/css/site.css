@@ -37,12 +37,13 @@ body {
   letter-spacing: .04em;
 }
 .mark {
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   object-fit: cover;
-  border-radius: 8px;
-  background: #fff;
+  border-radius: 9px;
+  background: #111;
   display: block;
+  border: 1px solid var(--line);
 }
 .gh {
   color: var(--muted);
