@@ -1,4 +1,4 @@
----
+﻿---
 layout: default
 title: 格格插件文档
 ---
@@ -46,6 +46,7 @@ FiveM 插件说明书。点开对应插件查看安装、配置和更新日志�
 
 - [真实车牌](plugins/gege-realplate.html)
 - [背枪](plugins/ge-weaponback.html)
+- [死亡掉枪](plugins/gege-weapondrop.html)
 - [收枪动作](plugins/pazeee-holster-selector.html)
 - [车辆数据](plugins/xiaoha-handling.html)
 - [静音电台](plugins/mute-radio.html)
