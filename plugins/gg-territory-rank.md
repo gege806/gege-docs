@@ -10,7 +10,7 @@ FiveM 黑帮服领地争夺插件：战区红圈、A/B/C 据点占领、全息�
 - 框架：**ESX / QBCore / QBX**（可自动识别）
 - 帮派：**rcore 帮派** 或 **QBX/QB 自带帮派**
 
-当前版本见 `fxmanifest.lua`（v2.6.5）。
+当前版本见 `fxmanifest.lua`（v2.6.6）。
 
 ---
 
@@ -224,6 +224,10 @@ Config.AdminLicenses = {
 ---
 
 ## 更新日志
+
+### v2.6.6
+
+- 对局时间到或复活倒计时结束后，使用 Wasabi 医疗也会站起来
 
 ### v2.6.5
 
