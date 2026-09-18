@@ -10,7 +10,7 @@ FiveM 黑帮服领地争夺插件：战区红圈、A/B/C 据点占领、全息�
 - 框架：**ESX / QBCore / QBX**（可自动识别）
 - 帮派：**rcore 帮派** 或 **QBX/QB 自带帮派**
 
-当前版本见 `fxmanifest.lua`（v2.6.6）。
+当前版本见 `fxmanifest.lua`（v2.6.7）。
 
 ---
 
@@ -123,6 +123,7 @@ ensure gg_territory_rank
 | `Config.Mode` | `'war'` 自研领地战 / `'rcore'` 仅读 rcore 排名 HUD |
 | `Config.Framework` | `'auto'` / `'esx'` / `'qb'` / `'qbx'` |
 | `Config.War.GangSource` | `'auto'` / `'rcore'` / `'qbx'` / `'job'`（有 rcore 又要接 QBX gang → 写死 `'qbx'`） |
+| `Config.War.Medical` | `'auto'` 自动识别医护；也可写死资源名 |
 | `Config.War.RequireRcoreGang` | `true`=必须入帮才能占领/计分 |
 | `Config.War.Zone` | 战区圆心 `center`、红圈半径 `radius` |
 | `Config.War.Pillars` | A/B/C 据点坐标、`captureRadius`、`respawnPoints` |
@@ -224,6 +225,10 @@ Config.AdminLicenses = {
 ---
 
 ## 更新日志
+
+### v2.6.7
+
+- 自动识别当前医护插件，倒计时结束按对应插件复活
 
 ### v2.6.6
 
