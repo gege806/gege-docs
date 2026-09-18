@@ -1,4 +1,4 @@
-﻿---
+---
 layout: default
 title: 格格插件文档
 ---
@@ -38,7 +38,6 @@ FiveM 插件说明书。点开对应插件查看安装、配置和更新日志�
 - [名称同步](plugins/txsync.html)
 - [高级加载界面](plugins/ge-loading.html)
 - [每日签到](plugins/ge-checkin.html)
-- [挂机奖励](plugins/gg-afk.html)
 - [VIP 进服](plugins/gg-vipjoin.html)
 - [进服须知](plugins/esx-welcome.html)
 
