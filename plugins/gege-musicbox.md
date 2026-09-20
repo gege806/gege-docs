@@ -84,7 +84,9 @@ add_ace group.admin gege_musicbox.admin allow
 | 搜索 · 热搜榜 | 网易云官方实时热搜 |
 | 搜索 · 飙升榜 | 网易云官方飙升榜歌单（`19723756`） |
 
-歌单 ID 来自 `https://music.163.com/#/playlist?id=` 后面的数字。
+歌单 ID 来自 `https://music.163.com/#/playlist?id=` 后面的数字。配置说明写在同一行末尾，例如 `Config.xxx = 值 -- 说明`，不要单独占一行。
+
+点官方歌单会马上进入歌单页。精选页已经拉过的曲目直接打开；还没缓存时，哪路接口先返回就先显示。
 
 4. **我喜欢表**：启动时自动执行 `install/favorites.sql`，也可手动导入。
 5. 添加物品 `musicbox`（见下方 **物品配置**，ox 必须写对 `export`）。
@@ -323,6 +325,13 @@ musicbox = {
 `ensure ox_lib` → `ensure ox_target` → `ensure gege_musicbox`；可试 `/mbrebind` 或 `/mbtarget` 排查。
 
 ## 更新日志
+
+### 1.3.3 · 2026-09-20
+
+**优化**
+- 点官方歌单马上打开，不再等两路接口都返回才进入歌单页
+- 精选页已经拉过的曲目会缓存，再次点开直接用缓存
+- 配置说明改为行尾注释：`Config.xxx = 值 -- 说明`
 
 ### 1.3.2 · 2026-08-29
 
