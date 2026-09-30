@@ -9,8 +9,7 @@ title: "gege_CAIPIAO"
 
 `gege_CAIPIAO` 是一套面向 **ESX / QB / QBOX** 的综合娱乐与彩票运营插件，提供刮刮乐、双色球、兑奖、奖池、经营收益管理，以及斗地主、麻将多人对局能力，适用于需要“即装即用、可长期运营”的 FiveM 服务器。
 
-当前版本：**v2.1.28**
-修复
+当前版本：**v2.1.29**
 本资源重点强调：
 
 - **稳定性**：对旧数据、旧 metadata、不同背包结构提供兼容兜底
@@ -191,11 +190,13 @@ GE.Mode = 'auto'   -- 或手动指定：'ESX' / 'QB' / 'QBOX'
 
 在 `ox_inventory/data/items.lua` 添加以下物品条目：
 
+> **重要：** 刮刮乐与双色球必须设为**不可堆叠**（`stack = false`）。若设为可堆叠，会出现「一次买多张、用掉一张后其余不能用」。
+
 ```lua
 ['flhs'] = {
     label = '福龙贺岁',
     weight = 50,
-    stack = true,
+    stack = false,
     close = true,
     image = 'flhs.png',
     description = '刮刮乐 - 福龙贺岁',
@@ -204,7 +205,7 @@ GE.Mode = 'auto'   -- 或手动指定：'ESX' / 'QB' / 'QBOX'
 ['fylt'] = {
     label = '富耀龙腾',
     weight = 50,
-    stack = true,
+    stack = false,
     close = true,
     image = 'fylt.png',
     description = '刮刮乐 - 富耀龙腾',
@@ -213,7 +214,7 @@ GE.Mode = 'auto'   -- 或手动指定：'ESX' / 'QB' / 'QBOX'
 ['lbx'] = {
     label = '祥龙报喜',
     weight = 50,
-    stack = true,
+    stack = false,
     close = true,
     image = 'lbx.png',
     description = '刮刮乐 - 祥龙报喜',
@@ -222,7 +223,7 @@ GE.Mode = 'auto'   -- 或手动指定：'ESX' / 'QB' / 'QBOX'
 ['zgl'] = {
     label = '中国龙',
     weight = 50,
-    stack = true,
+    stack = false,
     close = true,
     image = 'zgl.png',
     description = '刮刮乐 - 中国龙',
@@ -231,7 +232,7 @@ GE.Mode = 'auto'   -- 或手动指定：'ESX' / 'QB' / 'QBOX'
 ['fcy'] = {
     label = '发财鸭',
     weight = 50,
-    stack = true,
+    stack = false,
     close = true,
     image = 'fcy.png',
     description = '刮刮乐 - 发财鸭',
@@ -240,7 +241,7 @@ GE.Mode = 'auto'   -- 或手动指定：'ESX' / 'QB' / 'QBOX'
 ['ssq'] = {
     label = '双色球彩票',
     weight = 50,
-    stack = true,
+    stack = false,
     close = true,
     image = 'ssq.png',
     description = '双色球彩票',
@@ -255,12 +256,12 @@ GE.Mode = 'auto'   -- 或手动指定：'ESX' / 'QB' / 'QBOX'
 在 `qb-core/shared/items.lua`（或 QBOX 对应物品表）添加：
 
 ```lua
-['flhs'] = { name = 'flhs', label = '福龙贺岁', weight = 50, type = 'item', image = 'flhs.png', unique = false, useable = true, shouldClose = true, description = '刮刮乐 - 福龙贺岁' },
-['fylt'] = { name = 'fylt', label = '富耀龙腾', weight = 50, type = 'item', image = 'fylt.png', unique = false, useable = true, shouldClose = true, description = '刮刮乐 - 富耀龙腾' },
-['lbx']  = { name = 'lbx',  label = '祥龙报喜', weight = 50, type = 'item', image = 'lbx.png',  unique = false, useable = true, shouldClose = true, description = '刮刮乐 - 祥龙报喜' },
-['zgl']  = { name = 'zgl',  label = '中国龙',   weight = 50, type = 'item', image = 'zgl.png',  unique = false, useable = true, shouldClose = true, description = '刮刮乐 - 中国龙' },
-['fcy']  = { name = 'fcy',  label = '发财鸭',   weight = 50, type = 'item', image = 'fcy.png',  unique = false, useable = true, shouldClose = true, description = '刮刮乐 - 发财鸭' },
-['ssq']  = { name = 'ssq',  label = '双色球彩票', weight = 50, type = 'item', image = 'ssq.png', unique = false, useable = true, shouldClose = true, description = '双色球彩票' },
+['flhs'] = { name = 'flhs', label = '福龙贺岁', weight = 50, type = 'item', image = 'flhs.png', unique = true, useable = true, shouldClose = true, description = '刮刮乐 - 福龙贺岁' },
+['fylt'] = { name = 'fylt', label = '富耀龙腾', weight = 50, type = 'item', image = 'fylt.png', unique = true, useable = true, shouldClose = true, description = '刮刮乐 - 富耀龙腾' },
+['lbx']  = { name = 'lbx',  label = '祥龙报喜', weight = 50, type = 'item', image = 'lbx.png',  unique = true, useable = true, shouldClose = true, description = '刮刮乐 - 祥龙报喜' },
+['zgl']  = { name = 'zgl',  label = '中国龙',   weight = 50, type = 'item', image = 'zgl.png',  unique = true, useable = true, shouldClose = true, description = '刮刮乐 - 中国龙' },
+['fcy']  = { name = 'fcy',  label = '发财鸭',   weight = 50, type = 'item', image = 'fcy.png',  unique = true, useable = true, shouldClose = true, description = '刮刮乐 - 发财鸭' },
+['ssq']  = { name = 'ssq',  label = '双色球彩票', weight = 50, type = 'item', image = 'ssq.png', unique = true, useable = true, shouldClose = true, description = '双色球彩票' },
 ```
 
 资源启动后会自动挂载可用物品回调（QB / QBOX / ESX）。
@@ -494,6 +495,11 @@ GE.SalesNPC.withdraw = {
 ---
 
 ## 版本更新
+
+### v2.1.29
+
+- 修复一次购买多张刮刮乐后，用掉一张其余无法继续使用
+- 彩票物品改为不可堆叠，每张独立编号；安装说明已同步
 
 ### v2.1.28
 
