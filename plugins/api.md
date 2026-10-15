@@ -203,6 +203,25 @@ title: 接口参考
 
 ---
 
+## gg_killfx（击杀特效）
+
+**服务端**
+
+| 接口 | 作用 |
+|------|------|
+| `SetPlayerBackgroundInternal(targetSrc, backgroundId, updatedByIdentifier)` | 为玩家设置击杀横幅壁纸；`backgroundId` 为 `nil` / `''` / `'none'` 时清除 |
+| `ReloadBackgrounds()` | 按配置同步壁纸表并刷新内存中的壁纸列表 |
+
+调用示例：
+
+```lua
+exports['gg_killfx']:SetPlayerBackgroundInternal(targetSrc, 'fav_18', 'shop_script')
+exports['gg_killfx']:SetPlayerBackgroundInternal(targetSrc, 'none', 'shop_script')
+exports['gg_killfx']:ReloadBackgrounds()
+```
+
+---
+
 ## gg_jobapply（公职入职申请）
 
 无对外 exports。管理人员使用配置中的审核命令打开审核台；玩家通过招录点瞄准交互填表。

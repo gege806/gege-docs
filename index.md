@@ -35,6 +35,7 @@ FiveM 插件说明书。点开对应插件查看安装、配置和更新日志�
 
 - [RP 聊天框](plugins/rp聊天框.html)
 - [头顶显示](plugins/ge-overhead.html)
+- [击杀特效](plugins/gg-killfx.html)
 - [名称同步](plugins/txsync.html)
 - [高级加载界面](plugins/ge-loading.html)
 - [每日签到](plugins/ge-checkin.html)
