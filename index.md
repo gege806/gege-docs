@@ -30,6 +30,7 @@ FiveM 插件说明书。点开对应插件查看安装、配置和更新日志�
 - [酒吧减压饮品](plugins/gg-bar-relax.html)
 - [紧急维修台](plugins/gege-emergency-bench.html)
 - [猫咖](plugins/gege-cofeeuwu.html)
+- [格格饰品屋](plugins/gege-accessoryshop.html)
 
 ## 界面 / 聊天 / 显示
 

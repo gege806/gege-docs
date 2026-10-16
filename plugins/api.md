@@ -228,6 +228,26 @@ exports['gg_killfx']:ReloadBackgrounds()
 
 ---
 
+## gege_accessoryshop（格格饰品屋）
+
+**客户端**
+
+| 接口 | 作用 |
+|------|------|
+| `GetEditorCatalogItems()` | 返回饰品店 ox 清单（供 `pudding_decor` 挂点编辑器等合并列表），元素含 `item`、`label`、`group` |
+
+调用示例：
+
+```lua
+local list = exports['gege_accessoryshop']:GetEditorCatalogItems()
+```
+
+**客户端事件（可选监听）**
+
+- `gege_accessoryshop:shopSettingsUpdated` — 老板保存店名/Blip 文案后广播 `(settings)`，用于同步地图名等
+
+---
+
 ## 其他
 
 | 资源 | 接口 |
