@@ -73,7 +73,7 @@ title: "击杀特效 gg_killfx"
 3. 执行 `/killfxreload` 或在管理面板重载
 4. 在面板中为玩家选择壁纸  
 
-其他脚本为玩家改壁纸见 [接口参考](api.html) 中的 gg_killfx。
+其他脚本为玩家改壁纸见 [接口参考 · gg_killfx](api.html#gg_killfx击杀特效)。
 
 ## 更新日志
 
