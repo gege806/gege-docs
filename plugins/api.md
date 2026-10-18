@@ -248,12 +248,51 @@ local list = exports['gege_accessoryshop']:GetEditorCatalogItems()
 
 ---
 
+## ge-Scripts（通缉系统）
+
+**服务端 export（ox_inventory 物品）**
+
+| 接口 | 作用 |
+|------|------|
+| `UseTablet(event, item, inventory, slot, data)` | 使用 `Config.UseItem`（默认 `police_tablet`）时打开面板；仅 `Config.AllowedJobs` 通过校验的玩家会收到 UI |
+
+`items.lua` 示例：
+
+```lua
+server = { export = 'ge-Scripts.UseTablet' },
+```
+
+**服务端事件（资源内部 / 需警察权限）**
+
+| 事件 | 说明 |
+|------|------|
+| `ge-Scripts:server:getPlayers` | 拉取在线玩家列表 |
+| `ge-Scripts:server:lookupPlayer` | 参数 `targetId`（number），按服务器 ID 查在线玩家 |
+| `ge-Scripts:server:getWantedList` | 拉取通缉名单 |
+| `ge-Scripts:server:getConfig` | 拉取原因/时长预设等 UI 配置 |
+| `ge-Scripts:server:addWanted` | 参数 `data` 表：`identifier`, `sourceId`, `name`, `reason`, `duration`, `riskLevel`, `mugshotUrl` |
+| `ge-Scripts:server:removeWanted` | 参数 `identifier` 或 `{ identifier, sourceId }` |
+| `ge-Scripts:server:modifyTime` | 参数 `identifier`, `addMinutes` |
+| `ge-Scripts:server:changeRisk` | 参数 `{ identifier, direction }`（1 升级 / -1 降级） |
+| `ge-Scripts:server:saveMugshot` | 参数 `targetId`, `mugshotBase64` |
+
+**客户端事件**
+
+| 事件 | 说明 |
+|------|------|
+| `ge-Scripts:client:openUI` | 打开通缉 NUI（一般由服务端在校验权限后触发） |
+| `ge-Scripts:client:setWanted` | 全服广播：`wanted`（boolean）, `info` 表（含 `identifier`, `sourceId`, `name`, `reason`, `issuedBy`, `riskLevel`, `mugshotUrl` 等） |
+| `ge-Scripts:client:updateWantedCoords` | 警察端：`coords` 数组（通缉目标坐标，用于 blip） |
+| `ge-Scripts:client:refreshList` | 面板打开时刷新名单 |
+| `ge-Scripts:client:receivePlayers` / `receiveWantedList` / `receiveConfig` / `lookupPlayerResult` / `receiveMugshot` | NUI 数据回调，通常仅本资源使用 |
+
+---
+
 ## 其他
 
 | 资源 | 接口 |
 |------|------|
 | `gege-bindings` | 服务端 `UseTablet` |
-| `ge-Scripts` | 服务端 `UseTablet` |
 | `safetyzone` | 服务端 `GetZoneConfig`；客户端 `GetCurrentRestrictedZone` |
 | `gege_huaban_converted` / `gege_huaban_native` | `useHuaban` |
 | `bodycam` / `qb-bodycam` | 客户端 `useBodycam` |
