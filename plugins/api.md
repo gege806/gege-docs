@@ -210,14 +210,37 @@ title: 接口参考
 | 接口 | 作用 |
 |------|------|
 | `SetPlayerBackgroundInternal(targetSrc, backgroundId, updatedByIdentifier)` | 为玩家设置击杀横幅壁纸；`backgroundId` 为 `nil` / `''` / `'none'` 时清除 |
+| `SetPlayerIconSettingsInternal(targetSrc, settings, updatedByIdentifier)` | 写入该玩家的连杀图标、音效和位置。`settings` 为表，常用字段：`enabled`、`audioEnabled`、`iconSet`、`audioSet`、`volume`、`bannerTop`、`bannerRight`、`iconLeft`、`iconBottom`。缺的字段会按该玩家当前值补齐并限制在允许范围内 |
 | `ReloadBackgrounds()` | 按配置同步壁纸表并刷新内存中的壁纸列表 |
+
+**客户端**
+
+| 接口 | 作用 |
+|------|------|
+| `GetIconSettings()` | 返回本机当前连杀与位置设置 |
+| `TriggerKill(isMelee, isHeadshot)` | 按当前设置播一次连杀图标和音效，并累加连杀数 |
+| `ResetStreak()` | 连杀数归零 |
 
 调用示例：
 
 ```lua
 exports['gg_killfx']:SetPlayerBackgroundInternal(targetSrc, 'fav_18', 'shop_script')
 exports['gg_killfx']:SetPlayerBackgroundInternal(targetSrc, 'none', 'shop_script')
+exports['gg_killfx']:SetPlayerIconSettingsInternal(targetSrc, {
+    iconSet = 'valorant_lueduo',
+    audioSet = 'valorant',
+    bannerTop = 3,
+    bannerRight = 15,
+    iconLeft = 50,
+    iconBottom = 12,
+}, 'shop_script')
 exports['gg_killfx']:ReloadBackgrounds()
+```
+
+```lua
+-- 客户端
+exports['gg_killfx']:TriggerKill(false, true)
+exports['gg_killfx']:ResetStreak()
 ```
 
 ---
