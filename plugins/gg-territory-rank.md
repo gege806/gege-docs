@@ -10,7 +10,7 @@ FiveM 黑帮服领地争夺插件：战区红圈、A/B/C 据点占领、全息�
 - 框架：**ESX / QBCore / QBX**（可自动识别）
 - 帮派：**rcore 帮派** 或 **QBX/QB 自带帮派**
 
-当前版本见 `fxmanifest.lua`（v2.6.7）。
+当前版本见 `fxmanifest.lua`（v2.6.13）。
 
 ---
 
@@ -138,6 +138,21 @@ ensure gg_territory_rank
 | `Config.War.GangAnnounce` | 帮派公告花费与冷却 |
 | `Config.ToggleCommand` | HUD 指令，默认 `/rank`（所有玩家可用） |
 | `Config.AdminLicenses` | 管理功能 license 白名单（强制开战/结算/周刷新/清积分） |
+| `Config.ShowAreaCounts` | 开战中是否显示战区/据点人数；人多服可关更省 |
+| `Config.AreaCountIntervalMs` | 人数刷新间隔（毫秒，仅开战中；可调 3000–5000） |
+| `Config.War.Zone.drawMarker` | `false`=不画大战区柱体（推荐关，尖峰主因；地图红圈仍在） |
+| `Config.War.CaptureWall.enabled` | `false`=不画占领墙（最省） |
+| `Config.War.CaptureWall.style` | `holo` 全息墙 / `marker` 旧柱墙（更省） |
+| `Config.War.CaptureWall.drawDistance` | 墙可见距离（米）；越小越省 |
+
+### 人多服怎么更省
+
+按需改 `config.lua`（不改代码）：
+
+1. `Config.War.Zone.drawMarker = false` — 关掉大战区柱体，地图红圈仍在
+2. `Config.ShowAreaCounts = false` — 不显示战区/据点人数
+3. 或把 `Config.AreaCountIntervalMs` 调到 `3000`～`5000`
+4. `Config.War.CaptureWall.enabled = false` 或 `style = 'marker'`；也可缩小 `drawDistance`
 
 ### 每周清零
 
@@ -167,7 +182,7 @@ Config.War.Zone = {
 当前默认 `Respawn.mode = 'pillar'`：死亡后找最近据点，从其 `respawnPoints` 随机落地。
 
 - 改位置：各据点下的 `Pillars[].respawnPoints`（`vector4(x, y, z, 朝向)`）
-- 延迟：`Respawn.delay`（秒，默认 `60` = 1 分钟）
+- 延迟：`Respawn.delay`（秒，按配置，例如 `20`）
 - 无敌：`Respawn.invincibleTime`（`0` = 无无敌）
 - 其他模式：`bridge` 固定桥点 / `random` 用全局 `Respawn.points`
 
@@ -225,6 +240,19 @@ Config.AdminLicenses = {
 ---
 
 ## 更新日志
+
+### v2.6.13
+
+- 服务端占点扫描改为每 tick 只扫一遍全服玩家（按据点分桶）
+- 排名同步不再对每个玩家重复统计战区人数
+- 占领进度全服推送改为有变化或满约 1 秒再发；未开战时占点循环拉长等待
+- 配置注释统一为行尾中文说明
+
+### v2.6.8 ~ v2.6.12
+
+- 客户端全息墙与战区绘制优化（绘制距离、LOD、非绘制时降频）
+- 大战区柱体、人数刷新间隔可配置；人数统计仅开战中跑
+- 修复墙体闪烁、墙面文字在非占领态丢失等问题
 
 ### v2.6.7
 
